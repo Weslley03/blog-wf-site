@@ -1,27 +1,59 @@
 <template>
   <div class="a">
     <h1>Cadastro</h1>
-    <div class="inputs">
-      <FormInput :inputWidth="300" :inputHeight='26' inputPlaceholder="username" />
-      <FormInput :inputWidth="300" :inputHeight='26' inputPlaceholder="e-mail" />
-      <FormInput :inputWidth="300" :inputHeight='26' inputPlaceholder="senha" />
-      <FormInput :inputWidth="300" :inputHeight='26' inputPlaceholder="confirme sua senha" />
-    </div>
-    <div class="buttons">
-      <FormButton :buttonWidth="200" :buttonHeight='36' buttonText='cadastrar'/>
-    </div>
+    <form @submit.prevent="handForm">
+      <div class="inputs">
+        <FormInput v-model="username" :inputWidth="300" :inputHeight='26' inputType='text' inputPlaceholder="username" />
+        <span v-if="this.errors.username"> {{ this.errors.username.message }} </span>
+        <FormInput v-model="email" :inputWidth="300" :inputHeight='26' inputType='email' inputPlaceholder="email" />
+        <span v-if="this.errors.email"> {{ this.errors.email.message }} </span>
+        <FormInput v-model="password" :inputWidth="300" :inputHeight='26' inputType='password' inputPlaceholder="senha" />
+        <span v-if="this.errors.password"> {{ this.errors.password.message }} </span>
+        <FormInput v-model="confirmPassword" :inputWidth="300" :inputHeight='26' inputType='password' inputPlaceholder="confirme sua senha" />
+        <span v-if="this.errors.confirmPassword"> {{ this.errors.confirmPassword.message }} </span>
+      </div>
+      <div class="buttons">
+        <FormButton :buttonWidth="200" :buttonHeight='36' buttonText='cadastrar'/>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
   import FormButton from '../components/FormButton/FormButton.vue';
   import FormInput from '../components/FormInput/FormInput.vue';
+  import { checkForm } from '../utils/formValidation';
 
   export default {
     components: {
       FormInput,
       FormButton
     },
+
+    data() {
+      return {
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        errors: {},
+      }
+    },
+
+    methods: {
+      handForm() {
+        this.errors = {};
+
+        const cadastroData = {
+          username: this.username,
+          email: this.email,
+          password: this.password,
+          confirmPassword: this.confirmPassword,
+        };
+
+        this.errors = checkForm(cadastroData); 
+      },
+    }
   } 
 </script>
 
