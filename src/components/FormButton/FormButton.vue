@@ -1,5 +1,6 @@
 <template>
   <button
+    :type=buttonType
     :style="{
         width: buttonWidth + 'px' ,
         height: buttonHeight + 'px',
@@ -23,6 +24,11 @@
         require: true
       },
       
+      buttonType: {
+        type: String,
+        required: false,
+      },
+
       buttonText: {
         type: String,
         require: true
