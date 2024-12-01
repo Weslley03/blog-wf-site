@@ -1,6 +1,9 @@
 <template>
   <input 
-    :placeholder=inputPlaceholder
+    :value='modelValue'
+    @input="$emit('update:modelValue', $event.target.value)"
+    :type='inputType'
+    :placeholder='inputPlaceholder'
     :style="{
       width: inputWidth + 'px' ,
       height: inputHeight + 'px',
@@ -11,6 +14,10 @@
 <script>
   export default {
     props: {
+      modelValue: {
+        type: String,
+        required: true
+      },
       inputWidth: {
         type: Number,
         required: true,
@@ -19,10 +26,14 @@
         type: Number,
         required: true,
       },
+      inputType: {
+        type: String,
+        required: true,
+      },
       inputPlaceholder: {
         type: String,
         required: true,
-      }
+      },
     }
   }
 </script>
