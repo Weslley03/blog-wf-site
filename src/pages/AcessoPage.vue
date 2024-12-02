@@ -10,7 +10,9 @@
       </div> 
       <div class="buttons">
         <FormButton :buttonWidth="200" :buttonHeight='36' buttonText='entrar' buttonType='submit' />
-        <FormButton :buttonWidth="200" :buttonHeight='36' buttonText='cadastrar' />
+        <router-link to="/cadastro">
+          <FormButton :buttonWidth="200" :buttonHeight='36' buttonText='cadastrar' />
+        </router-link>
       </div>
     </form>
   </div> 
