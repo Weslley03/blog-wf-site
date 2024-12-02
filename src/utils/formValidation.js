@@ -18,6 +18,11 @@ function checkForm(data) {
   } else{
     errors.password = { message: 'o campo não deve ser vazio' }
   }
+
+  if(data.password != data.confirmPassword) {
+    errors.confirmPassword = { message: 'as senhas não condizem' }
+  }
+  
   return errors;
 };  
 
