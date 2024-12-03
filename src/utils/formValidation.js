@@ -14,7 +14,7 @@ function checkForm(data) {
   }
 
   if(data.password) {
-    if(data.password.length < 3) errors.password = { message: 'a senha deve ter no mínimo três caracteres' }
+    if(data.password.length < 6) errors.password = { message: 'a senha deve ter no mínimo três caracteres' }
   } else{
     errors.password = { message: 'o campo não deve ser vazio' }
   }
