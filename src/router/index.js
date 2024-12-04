@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import { isAuthenticaded } from "../utils/authenticatedValidator";
 
 const routes = [
-  { path: '/', name: 'Home',  component: () => import('../pages/HelloWorldPage.vue') },
+  { path: '/', name: 'Home',  component: () => import('../pages/HomePage.vue') },
   { path: '/view-post/:idPost', name: 'ViewPost', beforeEnter: (to, from, next) => { isAuthenticaded(to, from, next) }, component: () => import('../pages/HelloWorldPage.vue') },
   { path: '/acesso', name: 'Acesso', component: () => import('../pages/AcessoPage.vue') },
   { path: '/cadastro', name: 'Cadastro', component: () => import('../pages/CadastroPage.vue') },
