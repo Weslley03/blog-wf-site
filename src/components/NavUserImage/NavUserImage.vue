@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img 
+    <img class="userImage" 
       :src=srcImage
     />    
   </div>
@@ -18,7 +18,7 @@
 </script>
 
 <style>
-  img{
+  .userImage {
     cursor: pointer;
     border-radius: 50%;
     width: 3.5rem;

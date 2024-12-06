@@ -1,6 +1,6 @@
 <template>
   <div class="nav-user-name">
-    <span> {{ textName }} </span>    
+    <span class="userNameSpan"> {{ textName }} </span>    
   </div>
 </template>
 
@@ -23,7 +23,7 @@
     width: 100%;
   }
 
-  span {
+  .userNameSpan {
     margin-left: auto;
     text-align: end;
     cursor: pointer;
