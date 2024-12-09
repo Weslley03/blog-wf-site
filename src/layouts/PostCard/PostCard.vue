@@ -18,6 +18,7 @@
       return {
         posts: [
           { srcImagePost: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', titlePost: 'Hola amigo, Como estás?', authorPost: 'oweslley03', datePost: '06/09'},
+          { srcImagePost: 'https://avatars.githubusercontent.com/u/80?v=4', titlePost: 'Hola amigo, Como estás?', authorPost: 'oweslley03', datePost: '06/09'},
         ],
       }
     },
@@ -31,6 +32,7 @@
     height: 300px;
 
     align-items: center;
+    cursor: pointer;
   }
 
   .postCardImg {
