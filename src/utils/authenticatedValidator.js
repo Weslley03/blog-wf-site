@@ -1,6 +1,6 @@
 function isAuthenticaded(to, from, next) {
-  const userId = localStorage.getItem('userId');
-  if(!userId) {
+  const userToken = localStorage.getItem('userToken');
+  if(!userToken) {
     next('/acesso')
   } else {
     next()
