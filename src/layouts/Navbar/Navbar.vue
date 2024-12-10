@@ -37,9 +37,16 @@
     display: grid;
     grid-template-columns: repeat(2, auto) ;
     grid-template-rows: 1, 100px;
-    margin: 10px;
     border: 2px solid whitesmoke;
     border-radius: 10px;
     padding: 1rem;
+
+    margin: 0 auto;
+    max-width: 60vw;
+
+    @media (max-width: 800px){
+      margin: 10px;
+      max-width: 100vw;
+    }
   }
 </style>
