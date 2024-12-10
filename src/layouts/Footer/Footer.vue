@@ -15,7 +15,14 @@
     border: 2px solid whitesmoke;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px
+    
+    margin: 0 auto;
+    max-width: 60vw;
+
+    @media (max-width: 800px){
+      margin: 10px;
+      max-width: 100vw;
+    }
   }
 
   a {
