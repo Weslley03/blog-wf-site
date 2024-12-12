@@ -37,8 +37,15 @@
       eletrônica como Aldus PageMaker. <br> <br>
       </span>
     </section>
+    <div 
+    class="comments-section"
+    v-for="(comment, key) in this.comments"
+    :key="key"
+    >
+      <CommentBox :srcUserImage='comment.src' :nameUser='comment.name' :userComment='comment.commentText' />
+    </div>
   </div>
-
+ <br><br>
   <Footer />
 </template>
 
@@ -46,32 +53,47 @@
 import Navbar from "../layouts/Navbar/Navbar.vue";
 import Footer from "../layouts/Footer/Footer.vue";
 import PostBanner from "../components/PostBanner/PostBanner.vue";
+import CommentBox from "../components/CommentBox/CommentBox.vue";
 
 export default {
   components: {
     Navbar,
     Footer,
     PostBanner,
+    CommentBox,
   },
 
   data() {
     return {
       idPost: "",
       post: "",
+      user: "",
+      comments: [],
     };
   },
 
   mounted() {
+    this.user = JSON.parse(localStorage.getItem('user') || [])
     this.idPost = this.$route.params.idPost;
     if (this.idPost == "123456") {
+      
       this.post = {
         id: "123456",
-        srcImagePost:
-          "https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4",
+        srcImagePost: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4',
         titlePost: "Hola amigo, Como estás?",
         authorPost: "oweslley03",
         datePost: "06/09",
-      };
+      }
+
+      this.comments = [ 
+      { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
+      { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
+      { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
+      { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
+      { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
+      { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
+      { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
+      ]
     } else {
       alert("post não encontrado");
     }
@@ -101,5 +123,9 @@ export default {
 
   .spanTextPost {
     font-size: 20px;
+  }
+
+  .comments-section {
+    display: grid;
   }
 </style>
