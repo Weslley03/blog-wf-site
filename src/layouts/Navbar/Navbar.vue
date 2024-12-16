@@ -27,7 +27,8 @@
         this.user = { src: 'https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1', name: 'ghost' }
         localStorage.setItem('user', JSON.stringify(this.user));
       } else {
-        this.userToken = { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley' }
+        this.user = { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley' }
+        localStorage.setItem('user', JSON.stringify(this.user));
       }
     },
     
