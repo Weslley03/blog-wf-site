@@ -37,6 +37,10 @@
       eletrônica como Aldus PageMaker. <br> <br>
       </span>
     </section>
+    <div class="dataPost">
+      <button id="buttonLike"> like </button>
+      <p> {{ `${this.post.authorPost}, ${this.post.datePost}` }} </p>      
+    </div>
     <div 
     class="comments-section"
     v-for="(comment, key) in this.comments"
