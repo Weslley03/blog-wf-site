@@ -37,12 +37,22 @@
       eletrônica como Aldus PageMaker. <br> <br>
       </span>
     </section>
+    <div class="dataPost">
+      <button id="buttonLike"> like </button>
+      <p> {{ `${this.post.authorPost}, ${this.post.datePost}` }} </p>      
+    </div>
     <div 
     class="comments-section"
     v-for="(comment, key) in this.comments"
     :key="key"
     >
-      <CommentBox :srcUserImage='comment.src' :nameUser='comment.name' :userComment='comment.commentText' />
+      <CommentBox :srcUserImage='comment.src' :nameUser='comment.name' :userComment='comment.commentText' :isPost='false' />
+      <CommentBox 
+        v-if="!anonymous"
+        :srcUserImage='comment.src' 
+        :nameUser='comment.name' 
+        :isPost='true' 
+      />
     </div>
   </div>
  <br><br>
@@ -68,12 +78,14 @@ export default {
       idPost: "",
       post: "",
       user: "",
+      anonymous: '',
       comments: [],
     };
   },
 
   mounted() {
     this.user = JSON.parse(localStorage.getItem('user') || [])
+    if(this.user.name === 'ghost') this.anonymous = true
     this.idPost = this.$route.params.idPost;
     if (this.idPost == "123456") {
       
@@ -86,7 +98,6 @@ export default {
       }
 
       this.comments = [ 
-      { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
       { src: 'https://avatars.githubusercontent.com/u/83655316?s=400&u=bbea90ddaf49cff25138576d1e801b94cf099a82&v=4', name: 'oweslley03', commentText: 'muito bom' },
       ]
     } else {
@@ -122,5 +133,15 @@ export default {
 
   .comments-section {
     display: grid;
+  }
+
+  .dataPost {
+    display: grid;
+    text-align: end;
+    grid-template-columns: 100px   auto;
+  }
+
+  #buttonLike {
+    border-radius: 10px;
   }
 </style>
