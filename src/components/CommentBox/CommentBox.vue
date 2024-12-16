@@ -7,7 +7,8 @@
     <div 
     class="comment-text"
     > 
-      <p> {{ userComment }} </p>
+      <p v-if="!isPost"> {{ userComment }} </p>
+      <textarea v-else class="postCommentText" maxlength="110" />
     </div>
   </div>
 </template>
@@ -30,11 +31,22 @@ import NavUserImage from '../NavUserImage/NavUserImage.vue';
         require: true,
       },
 
+      isPost: {
+        type: Boolean,
+        required: true,
+      },
+
       userComment: {
-      type: String,
-      required: true,
+        type: String,
+        required: false,
+      },
     },
-    }
+
+    data() {
+      return {
+        active: '', 
+      }
+    },
   }
 </script>
 
@@ -73,5 +85,11 @@ import NavUserImage from '../NavUserImage/NavUserImage.vue';
     word-wrap: break-word;
     display: flex;
     align-items: center;
+  }
+
+  .postCommentText {
+    resize: none;
+    width: 1000%;
+    height: 70px;
   }
 </style>
