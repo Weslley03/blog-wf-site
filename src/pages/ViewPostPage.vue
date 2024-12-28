@@ -138,10 +138,10 @@ export default {
   .dataPost {
     display: grid;
     text-align: end;
-    grid-template-columns: 100px   auto;
+    grid-template-columns: 70px auto;
   }
 
   #buttonLike {
-    border-radius: 10px;
+    border-radius: 30px;
   }
 </style>
