@@ -11,6 +11,7 @@
         <p> {{ post.authorPost }}, {{ post.datePost }} </p>
       </div>
     </router-link>
+    <button v-if="isProfilePage" class="top-right-button" @click.stop="onButtonClick(post.id)">edit post</button>
   </section>
 </template>
 
@@ -24,6 +25,20 @@
         ],
       }
     },
+
+    props: {
+      isProfilePage: {
+        type: Boolean,
+        require: false,
+      },
+    },
+
+    methods: {
+      onButtonClick(postId) {
+        console.log(`bdutton clicked for post ID: ${postId}`);
+      },
+    },
+  
   }
 </script>
 
@@ -62,4 +77,17 @@
     color: #fff; 
     text-align: center;
   } 
+
+  .top-right-button {
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 10; 
+  }
 </style>
