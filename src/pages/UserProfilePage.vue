@@ -3,8 +3,10 @@
   <div class="user_profile_main_content">
     <h1>User Profile</h1>
     <div>
-      <FormButton class="user_profile_buttons" buttonWidth="80" buttonHeight="20" buttonText="edit profile" /> 
-      <FormButton class="user_profile_buttons" buttonWidth="80" buttonHeight="20" buttonText="add post" /> 
+      <FormButton class="user_profile_buttons" :buttonWidth="80" :buttonHeight="20" buttonText="edit profile"/> 
+      <router-link to="/add-post">
+        <FormButton class="user_profile_buttons" :buttonWidth="80" :buttonHeight="20" buttonText="add post" /> 
+      </router-link>
     </div>
   </div>
   <div class="user_profile_posts">

@@ -8,7 +8,7 @@ const routes = [
   { path: '/acesso', name: 'Acesso', component: () => import('../pages/AcessoPage.vue') },
   { path: '/cadastro', name: 'Cadastro', component: () => import('../pages/CadastroPage.vue') },
   { path: '/user-profile/:idUser', name: 'UserProfile', beforeEnter: (to, from, next) => { isAuthenticaded(to, from, next) }, component: () => import('../pages/UserProfilePage.vue') },
-  { path: '/add-post/:idPost', name: 'AddPost', beforeEnter: (to, from, next) => { isAuthenticaded(to, from, next) }, component: () => import('../pages/HelloWorldPage.vue') },
+  { path: '/add-post', name: 'AddPost', beforeEnter: (to, from, next) => { isAuthenticaded(to, from, next) }, component: () => import('../pages/AddPostPage.vue') },
   { path: '/edit-post/:idPost', name: 'EditPost', beforeEnter: (to, from, next) => { isAuthenticaded(to, from, next) }, component: () => import('../pages/HelloWorldPage.vue') },
   { path: '/:pathMatch(.*)*', name: 'ErroPage', component: () => import('../pages/HelloWorldPage.vue') }
 ]
