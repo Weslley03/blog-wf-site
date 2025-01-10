@@ -3,8 +3,10 @@
   <div class="user_profile_main_content">
     <h1>User Profile</h1>
     <div>
-      <button class="user_profile_buttons"> edit profile</button>
-      <button class="user_profile_buttons"> add post</button>
+      <FormButton class="user_profile_buttons" :buttonWidth="80" :buttonHeight="20" buttonText="edit profile"/> 
+      <router-link to="/add-post">
+        <FormButton class="user_profile_buttons" :buttonWidth="80" :buttonHeight="20" buttonText="add post" /> 
+      </router-link>
     </div>
   </div>
   <div class="user_profile_posts">
@@ -15,11 +17,13 @@
 <script>
   import Navbar from '../layouts/Navbar/Navbar.vue';
   import PostCard from '../layouts/PostCard/PostCard.vue';
+  import FormButton from '../components/FormButton/FormButton.vue';
 
   export default {
     components: {
       Navbar,
       PostCard,
+      FormButton,
     }
   }
 </script>
@@ -32,6 +36,7 @@
 
   .user_profile_buttons {
     margin: 5px;
+    font-size: 10px;
   }
   
   .user_profile_posts {
