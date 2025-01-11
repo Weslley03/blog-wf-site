@@ -38,7 +38,6 @@
         console.log(`bdutton clicked for post ID: ${postId}`);
       },
     },
-  
   }
 </script>
 
