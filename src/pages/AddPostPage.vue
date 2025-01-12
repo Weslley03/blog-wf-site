@@ -12,7 +12,7 @@
         <!-- <FormInput v-model="post_text" inputType="text" :inputHeight="400" inputPlaceholder="qual seu texto?" /> -->
       </div>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -22,6 +22,7 @@
   import FormInput from '../components/FormInput/FormInput.vue';
 
   export default {
+  
     components: {
       Navbar,
       PostCardPreview,
@@ -44,6 +45,7 @@
   .add_post_main {
     align-items: center;
     margin-bottom: 10px;
+    
   }
 
   .post_preview_section {
@@ -51,5 +53,22 @@
     
     height: 300px;
     width: 90vw;
+  }
+
+  .button_publish {
+    display: grid;
+    justify-content: center ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .input_publish_post {
+    display: grid;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #input_post_image {
+    font-size: 15px;
   }
 </style>
