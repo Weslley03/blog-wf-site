@@ -1,15 +1,15 @@
 <template>
   <section 
-  class="postCardSection"
-  v-for="(post, index) in posts"
-  :key="index"
+    class="postCardSection"
+    v-for="(post, index) in posts"
+    :key="index"
   >
     <router-link :to="`/view-post/${post.id}`">
-      <img class="postCardImg" :src="post.srcImagePost">
       <div class="textBox">
         <p> {{ post.titlePost }} </p>
         <p> {{ post.authorPost }}, {{ post.datePost }} </p>
       </div>
+      <img class="postCardImg" :src="post.srcImagePost">
     </router-link>
     <button v-if="isProfilePage" class="top-right-button" @click.stop="onButtonClick(post.id)">edit post</button>
   </section>
@@ -42,51 +42,44 @@
 </script>
 
 <style>
-  .postCardSection {
-    position: relative;
-    width: 320px;
-    height: 300px;
+.postCardSection {
+  position: relative;
+  width: 220px;
+  height: 200px;
+}
 
-    align-items: center;
-    cursor: pointer;
-  }
+.postCardImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; 
+}
 
-  .postCardImg {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px; 
-    object-fit: cover;
-  }
+.textBox {
+  position: absolute;
+  font-size: 12px;
+  backdrop-filter: blur(10px);
+  border-radius: 10px; 
+  padding: 12px;
+  
+  background-color: rgba(255, 255, 255, 0.3); 
+  color: #fff; 
+  text-align: center;
 
-  .textBox {
-    position: absolute;
+  margin-top: 20px;
+  left: 18%;
+  bottom: 2%;
+} 
 
-    width: 70%;
-    height: 20%;
-
-    top: 80%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-    backdrop-filter: blur(10px);
-    border-radius: 10px; 
-    padding: 20px;
-    
-    background-color: rgba(255, 255, 255, 0.3); 
-    color: #fff; 
-    text-align: center;
-  } 
-
-  .top-right-button {
-    position: absolute;
-    top: 10px;
-    right: 10px; 
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    z-index: 10; 
-  }
+.top-right-button {
+  position: absolute;
+  top: 10px;
+  right: 10px; 
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 10; 
+}
 </style>
